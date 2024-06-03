@@ -29,18 +29,31 @@ __global__ void kernel()
 
 }
 
-// TODO: YOU NEED TO IMPLEMENT TO PRINT THE INDEX RESULTS 
-void cuda_dump()
+void cuda_dump(int *grid, int tot_rows, int tot_cols)
 {
     printf("===============================\n");
-
+    for (int i = 0; i < tot_rows; i++) {
+        printf("[%d] ", i);
+        for (int j = 0; j < tot_cols; j++) {
+            if (grid[i * tot_cols + j])
+                printf("*");
+            else
+                printf("o");
+        }
+        printf("\n");
+    }
     printf("===============================\n");
 }
 
-// TODO: YOU NEED TO IMPLEMENT TO PRINT THE INDEX RESULTS 
-void cuda_dump_index()
+void cuda_dump_index(int *grid, int tot_rows, int tot_cols)
 {
     printf(":: Dump Row Column indices\n");
+    for (int i = 0; i < tot_rows; i++) {
+        for (int j = 0; j < tot_cols; j++) {
+            if (grid[i * tot_cols + j])
+                printf("%d %d\n", i, j);
+        }
+    }
 }
 
 // TODO: YOU NEED TO IMPLEMENT ON CUDA VERSION

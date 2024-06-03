@@ -21,8 +21,8 @@ public:
 	int isLive(int rows, int cols) { return (m_Grid[rows][cols] ? LIVE : DEAD); }
 	int getNumOfNeighbors(int rows, int cols);
 	
-	void dead(int rows, int cols) { m_Temp[rows][cols] = 0; }
-	void live(int rows, int cols) { m_Temp[rows][cols] = 1; }
+	void dead(int rows, int cols) { m_Temp[rows][cols] = DEAD; }
+	void live(int rows, int cols) { m_Temp[rows][cols] = LIVE; }
 
 	int decGen() { return m_Generations--; }
 	void setGen(int n) { m_Generations = n; }
